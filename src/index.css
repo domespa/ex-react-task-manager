@@ -1,0 +1,132 @@
+/*-------------
+    RESET
+-------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*-------------
+    GENERAL
+-------------*/
+
+.container {
+  margin: auto;
+  width: 1200px;
+}
+
+body {
+  display: flex;
+  background-color: rgb(49, 47, 47);
+  justify-content: center;
+}
+
+/*-------------
+    TASKLIST
+-------------*/
+.task-list h3 {
+  text-align: center;
+  color: white;
+  font-size: 26px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 16px auto;
+  width: 1000px;
+  height: 500px;
+  background-color: rgb(254, 254, 254);
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.task-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.task-list a:hover {
+  color: blue;
+}
+
+/*-------------
+    FORM
+-------------*/
+.container-newtask h2 {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 24px;
+}
+.newtask-form {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 30px;
+}
+
+.newtask-form label,
+input {
+  margin: 10px;
+}
+
+#descr {
+  display: block;
+  padding: 10px;
+  height: 200px;
+  width: 500px;
+}
+
+button {
+  padding: 4px 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/*-------------
+    TASKDETAIL
+-------------*/
+
+.container-task {
+  display: flex;
+  justify-content: center;
+}
+
+.card-task {
+  width: 1000px;
+  height: 500px;
+  background-image: url(/foglio-pulito-di-quaderno-a-strisce_108905-104.jpg);
+  background-size: cover;
+  border-radius: 10px;
+  position: relative;
+}
+
+.card-task h2 {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 24px;
+}
+
+.par-task {
+  padding: 50px;
+  justify-content: center;
+}
+.par-task button {
+  display: block;
+}
+
+.par-task p {
+  padding: 10px;
+}
+
+.card-task button {
+  align-self: center;
+  position: absolute;
+  bottom: 12px;
+  right: 106px;
+  transform: translateX(-50%);
+}
