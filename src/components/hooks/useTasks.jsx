@@ -38,8 +38,21 @@ export default function useTasks() {
   };
 
   // MODIFICA TASK (vuoto, come richiesto)
-  const updateTask = (taskId, updatedTask) => {};
+  const updateTask = async (updatedTask) => {
+    const resp = await fetch(`${API_URL}/tasks/${updatedTask.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTask),
+    });
+    const { success, message, task } = await resp.json();
+    if (!success) throw new Error(message);
 
+    setTasks((prevTasks) =>
+      prevTasks.map((t) => (t.id === task.id ? task : t))
+    );
+  };
   return {
     tasks,
     addTask,

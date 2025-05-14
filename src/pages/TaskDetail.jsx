@@ -2,12 +2,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import useTasks from "../components/hooks/useTasks";
 import { useState } from "react";
 import Modal from "../components/Modal";
+import EditTaskModal from "../components/EditTaskModal";
 
 export default function TaskDetail() {
   const { id } = useParams();
-  const { tasks, removeTask } = useTasks();
+  const { tasks, removeTask, updateTask } = useTasks();
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const task = tasks.find((t) => t.id === parseInt(id));
 
@@ -31,8 +33,17 @@ export default function TaskDetail() {
     }
   };
 
+  const handleUpdate = async (editTask) => {
+    try {
+      await updateTask(editTask);
+      setShowEditModal(false);
+    } catch (error) {
+      alert(`Errore nell'eliminazione della task: ${error.message}`);
+    }
+  };
+
   const handleDeleteModal = () => {
-    setShow(true);
+    setShowDeleteModal(true);
   };
 
   if (!task) {
@@ -53,14 +64,25 @@ export default function TaskDetail() {
             {task.status}
           </p>
           <p>{formattedDate}</p>
-          <button onClick={handleDeleteModal}>Elimina Task</button>
+          <div className="cont-action">
+            <button onClick={handleDeleteModal}>Elimina Task</button>
+            <button onClick={() => setShowEditModal(true)}>Modifica</button>
+          </div>
+
           <Modal
-            title="Titolo modale"
-            content="Contenuto modale"
-            show={show}
-            onClose={() => setShow(false)}
+            title={task.title}
+            content={task.description}
+            show={showDeleteModal}
+            onClose={() => setShowDeleteModal(false)}
             onConfirm={handleDelete}
             confirmText="Vuoi Eliminare?"
+          />
+
+          <EditTaskModal
+            task={task}
+            show={showEditModal}
+            onClose={() => setShowEditModal(false)}
+            onSave={handleUpdate}
           />
         </div>
       </div>

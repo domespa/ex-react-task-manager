@@ -52,15 +52,18 @@ export default function AddTask() {
         <div className="newtask-form">
           <form onSubmit={handleSubmit}>
             <label>
-              <strong>Titolo</strong>{" "}
+              <strong>Titolo:</strong>
             </label>
+            {taskTitleError && <p className="error-cont">{taskTitleError}</p>}
+
+            <br />
             <input
               type="text"
               placeholder="Inserisci il titolo della task"
               value={taskTitle}
               onChange={(e) => setTaskTitle(e.target.value)}
             />
-            {taskTitleError && <p style={{ color: "red" }}>{taskTitleError}</p>}
+            <br />
             <label>
               <strong>Stato</strong>
             </label>

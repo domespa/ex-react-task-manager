@@ -55,12 +55,13 @@ th {
 }
 
 /*-------------
-    FORM
+    ADDTASK FROM
 -------------*/
 .container-newtask h2 {
   text-align: center;
-  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 24px;
+  color: white;
 }
 .newtask-form {
   display: flex;
@@ -69,9 +70,14 @@ th {
   padding: 30px;
 }
 
+.error-cont {
+  color: red;
+}
+
 .newtask-form label,
 input {
-  margin: 10px;
+  margin-bottom: 20px;
+  padding: 4px;
 }
 
 #descr {
@@ -85,6 +91,26 @@ button {
   padding: 4px 8px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+}
+.update-form label {
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+.update-form textarea {
+  height: 200px;
+}
+.update-form textarea,
+select {
+  width: calc(100%);
+}
+
+.update-form input {
+  width: calc(100%);
 }
 
 /*-------------
@@ -123,12 +149,10 @@ button {
   padding: 10px;
 }
 
-.card-task button {
-  align-self: center;
-  position: absolute;
-  bottom: 12px;
-  right: 106px;
-  transform: translateX(-50%);
+.cont-action {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 /*-------------
@@ -150,8 +174,14 @@ button {
   background-color: white;
   padding: 20px;
   border-radius: 6px;
+  width: 500px;
+  height: 600px;
+  /* display: flex; */
 }
 
+.modal p {
+  padding: 20px 0px;
+}
 .modal button {
   margin: 4px;
 }

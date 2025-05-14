@@ -1,25 +1,23 @@
 import { createPortal } from "react-dom";
 
 export default function Modal({
-  title = "Titolo della modale",
-  content = "Contenuto della modale",
-  show = false,
-  onClose = () => {},
-  onConfirm = () => {},
-  confirmText = "testo del bottone di conferma",
+  title,
+  content,
+  show,
+  onClose,
+  onConfirm,
+  confirmText = "Conferma",
 }) {
-  return (
-    show &&
-    createPortal(
-      <div className="modal-container">
-        <div className="modal">
-          <h2>{title}</h2>
-          <p>{content}</p>
-          <button onClick={onClose}>Chiudi</button>
-          <button onClick={onConfirm}>{confirmText}</button>
-        </div>
-      </div>,
-      document.body
-    )
+  if (!show) return null;
+  return createPortal(
+    <div className="modal-container">
+      <div className="modal">
+        <h2>{title}</h2>
+        {content}
+        <button onClick={onClose}>Chiudi</button>
+        <button onClick={onConfirm}>{confirmText}</button>
+      </div>
+    </div>,
+    document.body
   );
 }
