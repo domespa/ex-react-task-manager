@@ -1,5 +1,6 @@
 import { useState, useRef, useMemo } from "react";
 import useTasks from "../components/hooks/useTasks";
+import { useNavigate } from "react-router-dom";
 const symbols = '!@#$%^&*()-_=+[]{}|;:\\",.<>?/`~';
 
 export default function AddTask() {
@@ -7,6 +8,7 @@ export default function AddTask() {
   const [error, setError] = useState("");
   const descrRef = useRef();
   const optRef = useRef();
+  const navigate = useNavigate();
   console.log("render");
 
   const { addTask } = useTasks();
@@ -33,6 +35,7 @@ export default function AddTask() {
     try {
       await addTask(newTask);
       alert("Task creata!");
+      navigate("/");
 
       setTaskTitle("");
       descrRef.current.value = "";

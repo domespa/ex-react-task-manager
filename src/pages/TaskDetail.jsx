@@ -1,10 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useTasks from "../components/hooks/useTasks";
+import { useState } from "react";
+import Modal from "../components/Modal";
 
 export default function TaskDetail() {
   const { id } = useParams();
   const { tasks, removeTask } = useTasks();
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
   const task = tasks.find((t) => t.id === parseInt(id));
 
@@ -28,6 +31,10 @@ export default function TaskDetail() {
     }
   };
 
+  const handleDeleteModal = () => {
+    setShow(true);
+  };
+
   if (!task) {
     return <div>Task non trovata o ancora in caricamento...</div>;
   }
@@ -46,7 +53,15 @@ export default function TaskDetail() {
             {task.status}
           </p>
           <p>{formattedDate}</p>
-          <button onClick={handleDelete}>Elimina Task</button>
+          <button onClick={handleDeleteModal}>Elimina Task</button>
+          <Modal
+            title="Titolo modale"
+            content="Contenuto modale"
+            show={show}
+            onClose={() => setShow(false)}
+            onConfirm={handleDelete}
+            confirmText="Vuoi Eliminare?"
+          />
         </div>
       </div>
     </div>

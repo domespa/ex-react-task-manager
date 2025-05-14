@@ -28,19 +28,13 @@ export default function useTasks() {
 
   // RIMUOVI TASK
   const removeTask = async (taskId) => {
-    try {
-      const resp = await fetch(`${API_URL}/tasks/${taskId}`, {
-        method: "DELETE",
-      });
-      const data = await resp.json();
-      if (data.success) {
-        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (err) {
-      throw new Error(err.message);
-    }
+    const resp = await fetch(`${API_URL}/tasks/${taskId}`, {
+      method: "DELETE",
+    });
+    const { success, message } = await resp.json();
+    if (!success) throw new Error(message);
+
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
   // MODIFICA TASK (vuoto, come richiesto)
