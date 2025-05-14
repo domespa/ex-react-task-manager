@@ -36,9 +36,11 @@ export default function TaskDetail() {
   const handleUpdate = async (editTask) => {
     try {
       await updateTask(editTask);
+      alert("Task modificata con successo");
+
       setShowEditModal(false);
     } catch (error) {
-      alert(`Errore nell'eliminazione della task: ${error.message}`);
+      alert(`Errore nella modifica della task: ${error.message}`);
     }
   };
 

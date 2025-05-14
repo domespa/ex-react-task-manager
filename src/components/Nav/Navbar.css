@@ -1,17 +1,18 @@
 .list-navbar {
   display: flex;
   justify-content: center;
-  margin: 30px 0;
-  padding: 20px 0;
-  border-style: double;
-  border-color: rgb(255, 255, 255);
-  color: white;
-  font-size: 20px;
+  margin: 20px 0;
+  border-style: solid;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  background-color: rgb(255, 255, 255);
+  height: 15vh;
+  align-items: center;
 }
 
 .list-navbar ul {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   list-style: none;
 }
 
@@ -21,5 +22,17 @@
 }
 
 .list-navbar a:hover {
-  color: aliceblue;
+  color: rgb(0, 0, 0);
+}
+
+.list-navbar button {
+  padding: 6px 14px;
+  border-radius: 10px;
+  border-color: none;
+  font-size: 18px;
+  margin: auto;
+}
+
+.list-navbar button:hover {
+  background-color: #4ec1b3;
 }

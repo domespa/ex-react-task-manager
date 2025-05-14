@@ -7,10 +7,14 @@ export default function Navbar() {
       <div className="list-navbar">
         <ul>
           <li>
-            <NavLink to="/">Lista Task</NavLink>
+            <button>
+              <NavLink to="/">Lista Task</NavLink>
+            </button>
           </li>
           <li>
-            <NavLink to="/add">Aggiungi Task</NavLink>
+            <button>
+              <NavLink to="/add">Aggiungi Task</NavLink>
+            </button>
           </li>
         </ul>
       </div>

@@ -18,30 +18,36 @@
 
 body {
   display: flex;
-  background-color: rgb(49, 47, 47);
+  background-color: rgb(78, 193, 179);
   justify-content: center;
 }
 
 /*-------------
     TASKLIST
 -------------*/
+
 .task-list h3 {
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 26px;
 }
 
 table {
   border-collapse: collapse;
   margin: 16px auto;
-  width: 1000px;
+  width: 1200px;
   height: 500px;
   background-color: rgb(254, 254, 254);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.9);
+}
+
+table th {
+  font-size: 18px;
 }
 
 td,
 th {
-  border: 1px solid #ddd;
+  border: 2px solid #000000;
   padding: 10px;
 }
 
@@ -59,15 +65,17 @@ th {
 -------------*/
 .container-newtask h2 {
   text-align: center;
-  padding-bottom: 30px;
-  font-size: 24px;
-  color: white;
+  padding-bottom: 16px;
+  font-size: 26px;
+  color: rgb(0, 0, 0);
 }
 .newtask-form {
   display: flex;
   justify-content: center;
   background-color: white;
   padding: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.9);
+  font-size: 18px;
 }
 
 .error-cont {
@@ -120,6 +128,7 @@ select {
 .container-task {
   display: flex;
   justify-content: center;
+  font-size: 18px;
 }
 
 .card-task {
@@ -133,7 +142,7 @@ select {
 
 .card-task h2 {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 20px;
   font-size: 24px;
 }
 
