@@ -52,9 +52,11 @@ export default function AddTask() {
         <div className="newtask-form">
           <form onSubmit={handleSubmit}>
             <label>
-              <strong>Titolo:</strong>
+              <strong>Titolo:</strong>{" "}
+              {taskTitleError && (
+                <span className="error-cont">{taskTitleError}</span>
+              )}
             </label>
-            {taskTitleError && <p className="error-cont">{taskTitleError}</p>}
 
             <br />
             <input
@@ -72,13 +74,16 @@ export default function AddTask() {
               <option value="Doing">Doing</option>
               <option value="Done">Done</option>
             </select>
+            <br />
             <label style={{ display: "block" }}>
-              <strong>Inserisci la descrizione:</strong>{" "}
+              <strong>Inserisci la descrizione:</strong>
             </label>
             <textarea id="descr" placeholder="Scrivi qui...." ref={descrRef} />
-            <button type="submit" disabled={taskTitleError}>
-              Aggiungi
-            </button>
+            <div className="act-addtask">
+              <button type="submit" disabled={taskTitleError}>
+                Aggiungi
+              </button>
+            </div>
           </form>
         </div>
       </div>

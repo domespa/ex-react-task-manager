@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   margin: 20px 0;
-  border-style: solid;
+  border: 2px solid;
   color: rgb(0, 0, 0);
   font-size: 18px;
   background-color: rgb(255, 255, 255);
@@ -21,18 +21,19 @@
   color: inherit;
 }
 
-.list-navbar a:hover {
-  color: rgb(0, 0, 0);
-}
-
-.list-navbar button {
+.nav-button {
   padding: 6px 14px;
   border-radius: 10px;
-  border-color: none;
   font-size: 18px;
   margin: auto;
+  background-color: transparent;
+  border: 2px solid black;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.list-navbar button:hover {
+.nav-button:hover {
   background-color: #4ec1b3;
 }

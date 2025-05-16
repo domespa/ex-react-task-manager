@@ -65,7 +65,10 @@ export default function TaskDetail() {
             <strong>Stato: </strong>
             {task.status}
           </p>
-          <p>{formattedDate}</p>
+          <p>
+            <strong>Creata il: </strong>
+            {formattedDate}
+          </p>
           <div className="cont-action">
             <button onClick={handleDeleteModal}>Elimina Task</button>
             <button onClick={() => setShowEditModal(true)}>Modifica</button>

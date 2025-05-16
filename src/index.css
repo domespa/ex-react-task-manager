@@ -15,6 +15,11 @@
   margin: auto;
   width: 1200px;
 }
+button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 body {
   display: flex;
@@ -47,7 +52,7 @@ table th {
 
 td,
 th {
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   padding: 10px;
 }
 
@@ -76,16 +81,18 @@ th {
   padding: 30px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.9);
   font-size: 18px;
+  border: 1px solid;
 }
 
 .error-cont {
   color: red;
 }
 
-.newtask-form label,
-input {
-  margin-bottom: 20px;
+.newtask-form input,
+select {
+  margin-bottom: 30px;
   padding: 4px;
+  width: 500px;
 }
 
 #descr {
@@ -95,10 +102,12 @@ input {
   width: 500px;
 }
 
-button {
-  padding: 4px 8px;
+.act-addtask button {
+  padding: 4px 20px;
   margin-top: 10px;
   cursor: pointer;
+  font-size: 16px;
+  border-radius: 10px;
 }
 
 .update-form {
@@ -121,6 +130,14 @@ select {
   width: calc(100%);
 }
 
+.act-addtask {
+  display: flex;
+  justify-content: center;
+}
+
+.act-addtask button:hover {
+  background-color: #4ec1b3;
+}
 /*-------------
     TASKDETAIL
 -------------*/

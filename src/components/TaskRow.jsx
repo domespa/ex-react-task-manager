@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
-export default function TaskRow({ task }) {
+export default function TaskRow({ task, checked, onToggle }) {
   const finalTask = useMemo(() => {
     // FORMATTAZIONE DELLA DATA
     const formattedDate = new Date(task.createdAt).toLocaleString("it-IT", {
@@ -16,11 +16,11 @@ export default function TaskRow({ task }) {
     const getStatusColor = (status) => {
       switch (status) {
         case "To do":
-          return { color: "red" };
+          return { backgroundColor: "red" };
         case "Doing":
-          return { color: "hsl(56, 84.80%, 46.50%)" };
+          return { backgroundColor: "hsl(56, 84.80%, 46.50%)" };
         case "Done":
-          return { color: "green" };
+          return { backgroundColor: "green" };
         default:
           return;
       }
@@ -36,6 +36,13 @@ export default function TaskRow({ task }) {
 
   return (
     <tr>
+      <td>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={() => onToggle(task.id)}
+        />
+      </td>
       <td>
         <Link to={`/task/${task.id}`}>{finalTask.title}</Link>
       </td>
